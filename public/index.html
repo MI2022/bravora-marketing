@@ -361,6 +361,203 @@
   .cta-band .store-btn { background: var(--paper); color: var(--ink); }
   .cta-band .store-btn:hover { background: white; }
 
+  /* ---------- Founder video ---------- */
+  .founder-section {
+    padding: 88px 0;
+  }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .founder-grid { grid-template-columns: 1fr; gap: 36px; }
+    .founder-section { padding: 56px 0; }
+  }
+  .founder-copy h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.2vw, 38px);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .founder-copy p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    max-width: 420px;
+  }
+  .founder-copy .founder-sig {
+    margin-top: 24px;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .founder-copy .founder-sig span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .founder-video-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 56px -16px rgba(27,20,37,0.28);
+    background: var(--ink);
+    cursor: pointer;
+  }
+  .founder-video-wrap video {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+  }
+  .founder-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(27,20,37,0.25);
+    transition: background 0.2s ease;
+    border-radius: 20px;
+  }
+  .founder-video-wrap:hover .founder-play-overlay,
+  .founder-video-wrap.playing .founder-play-overlay {
+    background: rgba(27,20,37,0);
+  }
+  .founder-video-wrap.playing .founder-play-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .founder-play-btn {
+    width: 64px; height: 64px;
+    background: var(--paper);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px -8px rgba(27,20,37,0.4);
+    transition: transform 0.15s ease;
+  }
+  .founder-video-wrap:hover .founder-play-btn {
+    transform: scale(1.06);
+  }
+
+  /* ---------- Brands contact form ---------- */
+  .brands-band {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 28px;
+    padding: 64px 48px;
+    margin: 0 28px;
+  }
+  @media (max-width: 640px) {
+    .brands-band { padding: 44px 24px; margin: 0 16px; }
+  }
+  .brands-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .brands-inner { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .brands-copy h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(26px, 3.2vw, 36px);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .brands-copy p {
+    color: rgba(251,247,241,0.7);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .brands-copy ul {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .brands-copy ul li {
+    color: rgba(251,247,241,0.8);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brands-copy ul li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .brands-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .brands-form input,
+  .brands-form textarea {
+    width: 100%;
+    background: rgba(251,247,241,0.08);
+    border: 1px solid rgba(251,247,241,0.15);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--paper);
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    resize: none;
+  }
+  .brands-form input::placeholder,
+  .brands-form textarea::placeholder {
+    color: rgba(251,247,241,0.4);
+  }
+  .brands-form input:focus,
+  .brands-form textarea:focus {
+    border-color: rgba(251,247,241,0.4);
+    background: rgba(251,247,241,0.12);
+  }
+  .brands-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 500px) {
+    .brands-form-row { grid-template-columns: 1fr; }
+  }
+  .brands-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+    width: 100%;
+  }
+  .brands-submit:hover {
+    background: white;
+    transform: translateY(-1px);
+  }
+
   /* ---------- Contact ---------- */
   .contact-grid {
     display: grid;
@@ -429,6 +626,7 @@
     <div class="logo">Bravora</div>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
+      <li><a href="#founder">Founder</a></li>
       <li><a href="#brands">For brands</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -517,6 +715,29 @@
   </div>
 </section>
 
+<section class="founder-section section-alt" id="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-copy">
+        <h2 class="serif">A word from the founder.</h2>
+        <p>I built Bravora because asking clients for a testimonial felt awkward, and the results — a blurry screenshot or a forgotten email — never did the work justice. This is the tool I wished existed.</p>
+        <div class="founder-sig">
+          Muhammad Ismaeel
+          <span>Founder, Bravora</span>
+        </div>
+      </div>
+      <div class="founder-video-wrap" id="founderVideoWrap">
+        <video id="founderVideo" src="founder.mp4" playsinline preload="metadata" poster=""></video>
+        <div class="founder-play-overlay" id="founderOverlay">
+          <div class="founder-play-btn">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 3.5v15L18 11 6 3.5z" fill="#1B1425"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="value-grid">
@@ -536,14 +757,30 @@
   </div>
 </section>
 
-<section id="brands">
-  <div class="cta-band">
-    <h2 class="serif">Building something bigger for teams and brands.</h2>
-    <p>A web dashboard for agencies and larger teams collecting testimonials at scale is coming. Want early access?</p>
-    <div class="store-row">
-      <a class="store-btn" href="mailto:hello@gobravora.com?subject=Bravora%20for%20Brands%20-%20Early%20Access">
-        <span class="store-btn-text"><span class="big">Get early access →</span></span>
-      </a>
+<section id="brands" class="section">
+  <div class="brands-band">
+    <div class="brands-inner">
+      <div class="brands-copy">
+        <h2 class="serif">Built for teams and brands who need this at scale.</h2>
+        <p>A web dashboard for agencies and larger teams collecting testimonials is on the way. Get in early and help shape what we build.</p>
+        <ul>
+          <li>Bulk testimonial campaigns</li>
+          <li>Team access &amp; shared library</li>
+          <li>White-label sharing options</li>
+          <li>Priority processing &amp; support</li>
+        </ul>
+      </div>
+      <div>
+        <div class="brands-form" id="brandsForm">
+          <div class="brands-form-row">
+            <input type="text" id="bf-name" placeholder="Your name" autocomplete="name">
+            <input type="text" id="bf-company" placeholder="Company or agency" autocomplete="organization">
+          </div>
+          <input type="email" id="bf-email" placeholder="Work email" autocomplete="email">
+          <textarea id="bf-message" rows="4" placeholder="Tell us a bit about your use case (optional)"></textarea>
+          <a class="brands-submit" id="brandsSubmit" href="#">Get early access →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -579,5 +816,44 @@
   </div>
 </footer>
 
+<script>
+  // Founder video play/pause toggle
+  const video = document.getElementById('founderVideo');
+  const wrap  = document.getElementById('founderVideoWrap');
+  const overlay = document.getElementById('founderOverlay');
+
+  wrap.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      wrap.classList.add('playing');
+    } else {
+      video.pause();
+      wrap.classList.remove('playing');
+    }
+  });
+
+  video.addEventListener('ended', () => {
+    wrap.classList.remove('playing');
+  });
+
+  // Brands mailto form
+  document.getElementById('brandsSubmit').addEventListener('click', function(e) {
+    e.preventDefault();
+    const name    = document.getElementById('bf-name').value.trim();
+    const company = document.getElementById('bf-company').value.trim();
+    const email   = document.getElementById('bf-email').value.trim();
+    const message = document.getElementById('bf-message').value.trim();
+
+    const subject = encodeURIComponent('Bravora for Brands — Early Access');
+    const body = encodeURIComponent(
+      (name    ? 'Name: '    + name    + '\n' : '') +
+      (company ? 'Company: ' + company + '\n' : '') +
+      (email   ? 'Email: '   + email   + '\n' : '') +
+      (message ? '\n' + message : '')
+    );
+
+    window.location.href = 'mailto:hello@gobravora.com?subject=' + subject + '&body=' + body;
+  });
+</script>
 </body>
 </html>
