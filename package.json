@@ -1,0 +1,11 @@
+{
+  "name": "bravora-marketing",
+  "version": "1.0.0",
+  "description": "Bravora marketing site — deployed to Cloudflare Pages at gobravora.com",
+  "scripts": {
+    "deploy": "wrangler pages deploy . --project-name bravora-marketing"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
