@@ -2,4 +2,4 @@ name = "bravora-marketing"
 compatibility_date = "2026-09-14"
 
 [assets]
-directory = "."
+directory = "./public"
