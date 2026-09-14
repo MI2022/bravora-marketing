@@ -576,7 +576,7 @@
         <div class="float-badge badge-1"><span class="dot"></span> Captions added</div>
         <div class="float-badge badge-2">⭐ 5.0 rating</div>
         <div class="t-card">
-          <div class="t-card-video" id="heroVideoWrap">
+          <div class="t-card-video" id="heroVideoWrap" style="position:relative;">
             <video
               id="heroVideo"
               src="founder.mp4"
@@ -585,15 +585,17 @@
               loop
               style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"
             ></video>
-            <div class="t-play" id="heroPlayBtn" style="cursor:pointer;">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="white"><path d="M4 2.5v13l11-6.5z"/></svg>
+            <!-- name + stars overlay at bottom of video -->
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:32px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent);border-radius:0 0 16px 16px;display:flex;align-items:center;gap:10px;">
+              <div class="t-avatar" style="background:#C4304A;">SC</div>
+              <div>
+                <div class="t-name">Sofia C.</div>
+                <div class="t-stars">★★★★★</div>
+              </div>
             </div>
-          </div>
-          <div class="t-meta">
-            <div class="t-avatar">JR</div>
-            <div>
-              <div class="t-name">Jordan R.</div>
-              <div class="t-stars">★★★★★</div>
+            <!-- play button -->
+            <div class="t-play" id="heroPlayBtn" style="cursor:pointer;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="white"><path d="M4 2.5v13l11-6.5z"/></svg>
             </div>
           </div>
         </div>
