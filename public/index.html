@@ -361,91 +361,6 @@
   .cta-band .store-btn { background: var(--paper); color: var(--ink); }
   .cta-band .store-btn:hover { background: white; }
 
-  /* ---------- Founder video ---------- */
-  .founder-section {
-    padding: 88px 0;
-  }
-  .founder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-  }
-  @media (max-width: 900px) {
-    .founder-grid { grid-template-columns: 1fr; gap: 36px; }
-    .founder-section { padding: 56px 0; }
-  }
-  .founder-copy h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: clamp(28px, 3.2vw, 38px);
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-  .founder-copy p {
-    color: var(--ink-soft);
-    font-size: 16px;
-    max-width: 420px;
-  }
-  .founder-copy .founder-sig {
-    margin-top: 24px;
-    font-family: 'Fraunces', serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .founder-copy .founder-sig span {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin-top: 2px;
-  }
-  .founder-video-wrap {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 24px 56px -16px rgba(27,20,37,0.28);
-    background: var(--ink);
-    cursor: pointer;
-  }
-  .founder-video-wrap video {
-    width: 100%;
-    display: block;
-    border-radius: 20px;
-  }
-  .founder-play-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(27,20,37,0.25);
-    transition: background 0.2s ease;
-    border-radius: 20px;
-  }
-  .founder-video-wrap:hover .founder-play-overlay,
-  .founder-video-wrap.playing .founder-play-overlay {
-    background: rgba(27,20,37,0);
-  }
-  .founder-video-wrap.playing .founder-play-overlay {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .founder-play-btn {
-    width: 64px; height: 64px;
-    background: var(--paper);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 24px -8px rgba(27,20,37,0.4);
-    transition: transform 0.15s ease;
-  }
-  .founder-video-wrap:hover .founder-play-btn {
-    transform: scale(1.06);
-  }
-
   /* ---------- Brands contact form ---------- */
   .brands-band {
     background: var(--ink);
@@ -626,7 +541,6 @@
     <div class="logo">Bravora</div>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
-      <li><a href="#founder">Founder</a></li>
       <li><a href="#brands">For brands</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -662,12 +576,17 @@
         <div class="float-badge badge-1"><span class="dot"></span> Captions added</div>
         <div class="float-badge badge-2">⭐ 5.0 rating</div>
         <div class="t-card">
-          <div class="t-card-video">
-            <div class="t-play">
+          <div class="t-card-video" id="heroVideoWrap">
+            <video
+              id="heroVideo"
+              src="founder.mp4"
+              playsinline
+              preload="metadata"
+              loop
+              style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"
+            ></video>
+            <div class="t-play" id="heroPlayBtn" style="cursor:pointer;">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="white"><path d="M4 2.5v13l11-6.5z"/></svg>
-            </div>
-            <div class="t-caption-bar">
-              <span class="t-caption-word">honestly</span>
             </div>
           </div>
           <div class="t-meta">
@@ -710,29 +629,6 @@
         </div>
         <h3 class="serif">Share their story</h3>
         <p>Bravora captions it automatically. Export it, ready for your site or feed.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="founder-section section-alt" id="founder">
-  <div class="wrap">
-    <div class="founder-grid">
-      <div class="founder-copy">
-        <h2 class="serif">A word from the founder.</h2>
-        <p>I built Bravora because asking clients for a testimonial felt awkward, and the results — a blurry screenshot or a forgotten email — never did the work justice. This is the tool I wished existed.</p>
-        <div class="founder-sig">
-          Muhammad Ismaeel
-          <span>Founder, Bravora</span>
-        </div>
-      </div>
-      <div class="founder-video-wrap" id="founderVideoWrap">
-        <video id="founderVideo" src="founder.mp4" playsinline preload="metadata" poster=""></video>
-        <div class="founder-play-overlay" id="founderOverlay">
-          <div class="founder-play-btn">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 3.5v15L18 11 6 3.5z" fill="#1B1425"/></svg>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -817,23 +713,26 @@
 </footer>
 
 <script>
-  // Founder video play/pause toggle
-  const video = document.getElementById('founderVideo');
-  const wrap  = document.getElementById('founderVideoWrap');
-  const overlay = document.getElementById('founderOverlay');
+  // Hero video play/pause toggle
+  const heroVideo   = document.getElementById('heroVideo');
+  const heroPlayBtn = document.getElementById('heroPlayBtn');
 
-  wrap.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-      wrap.classList.add('playing');
-    } else {
-      video.pause();
-      wrap.classList.remove('playing');
+  heroPlayBtn.addEventListener('click', () => {
+    if (heroVideo.paused) {
+      heroVideo.play();
+      heroPlayBtn.style.opacity = '0';
+      heroPlayBtn.style.pointerEvents = 'none';
     }
   });
 
-  video.addEventListener('ended', () => {
-    wrap.classList.remove('playing');
+  heroVideo.addEventListener('pause', () => {
+    heroPlayBtn.style.opacity = '1';
+    heroPlayBtn.style.pointerEvents = 'auto';
+  });
+
+  heroVideo.addEventListener('ended', () => {
+    heroPlayBtn.style.opacity = '1';
+    heroPlayBtn.style.pointerEvents = 'auto';
   });
 
   // Brands mailto form
